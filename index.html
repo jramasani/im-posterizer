@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Posterizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Image Posterizer</h1>
+            <p>Upload an image and create stunning posterized effects</p>
+        </header>
+
+        <div class="documentation">
+            <div class="doc-section">
+                <h2>📖 How to Use</h2>
+                <div class="doc-grid">
+                    <div class="doc-item">
+                        <h3>1. Upload Your Image</h3>
+                        <p>Drag and drop your image or click to browse. Supports JPG, PNG, GIF, and WebP formats up to 50MB.</p>
+                    </div>
+                    <div class="doc-item">
+                        <h3>2. Adjust Settings</h3>
+                        <p><strong>Threshold:</strong> Controls color levels (2-8). Lower = stronger effect, Higher = more realistic.</p>
+                        <p><strong>Highlights:</strong> Brighten or darken light areas of your image.</p>
+                        <p><strong>Shadows:</strong> Lighten or darken shadow areas of your image.</p>
+                    </div>
+                    <div class="doc-item">
+                        <h3>3. Download & Share</h3>
+                        <p>Download your posterized image at full resolution. Perfect for professional photography and digital art.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2>🔒 Privacy & Security</h2>
+                <p><strong>Your images never leave your device!</strong> All processing happens locally in your browser using HTML5 Canvas technology. We don't upload, store, or access your images. Your privacy is guaranteed.</p>
+                <div class="privacy-features">
+                    <div class="privacy-item">
+                        <span class="privacy-icon">🔐</span>
+                        <span>Local Processing</span>
+                    </div>
+                    <div class="privacy-item">
+                        <span class="privacy-icon">🚫</span>
+                        <span>No Data Collection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7,10 12,15 17,10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <h3>Drop your image here</h3>
+                        <p>or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-section" id="editorSection" style="display: none;">
+                <div class="canvas-container">
+                    <div class="canvas-wrapper">
+                        <h3>Original Image</h3>
+                        <canvas id="originalCanvas" class="canvas"></canvas>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <h3>Posterized Image</h3>
+                        <canvas id="posterizedCanvas" class="canvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="thresholdSlider">Threshold</label>
+                        <input type="range" id="thresholdSlider" min="2" max="8" value="4" step="1">
+                        <span id="thresholdValue">4</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="highlightsSlider">Highlights</label>
+                        <input type="range" id="highlightsSlider" min="0" max="100" value="50" step="1">
+                        <span id="highlightsValue">50</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="shadowsSlider">Shadows</label>
+                        <input type="range" id="shadowsSlider" min="0" max="100" value="50" step="1">
+                        <span id="shadowsValue">50</span>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="downloadBtn" class="btn btn-primary">Download Posterized Image</button>
+                        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>Made with ❤️ by <a href="https://www.instagram.com/jramasani" target="_blank" rel="noopener noreferrer">@jramasani</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
